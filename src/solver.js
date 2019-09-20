@@ -87,35 +87,22 @@ class Solver {
 
     parseText (mazeText) {
         const rows = mazeText.split('\n');
-        this.numRows = rows.length;
-        this.numColumns = rows[0].length;
-        let numericRows = []
-        for (let rowNum = 0; rowNum < this.numRows; rowNum++) {
-            let row = []
-            for (let colNum = 0; colNum < this.numColumns; colNum++) {
-                const cell = rows[rowNum][colNum];
-                const isSide = colNum === (this.numColumns -1) || colNum === 0 || rowNum === (this.numRows -1) || rowNum === 0;
-                
-                if (cell == 'S') {
-                    this.path = [mathjs.matrix([rowNum, colNum])];
-                    row.push(0);
-                }
-                else if (cell == 'X') {
-                    row.push(1);
-                }
-                else if (cell == 'O') {
-                    row.push(0);
-                    if (isSide) {
-                        this.endPoint = mathjs.matrix([rowNum, colNum]);
-                    }
-                    
-                }
+        const arrays = rows.map((item) => Array(...item));
+        this.matrix = mathjs.matrix(arrays);
+        this.matrix.forEach((value, index, m) => {
+            if (value === 'S') {
+                this.path = [mathjs.matrix(index)];
             }
-            numericRows.push(row);
-        }
-        this.matrix = mathjs.matrix(numericRows);
-        this.extents = this.matrix._size;
-        
+            if (value === 'O' && !this.endPoint) {
+                m._size.forEach((dim, indexInIndex) => {
+                    const currentIndex = index[indexInIndex]
+                    if (currentIndex === 0 || currentIndex === dim -1) {
+                        this.endPoint = mathjs.matrix(index);
+                    }
+                });
+            }
+            
+        });
     }
 } 
 

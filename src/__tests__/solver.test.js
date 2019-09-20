@@ -40,7 +40,7 @@ test('test maze content can be parsed', () => {
     expect(sol.matrix._data).toEqual([ [ 1, 0 ], [ 1, 0 ] ]);
 });
 
-test('larger Maze', () => {
+test.only('larger Maze', () => {
     const sol = new Solver();
     sol.parseText('XOXXXX\nXOXOOX\nXOXOXX\nXOOOSX\nXXXXXX');
     expect(sol.endPoint).toEqual(m([0,1]));
