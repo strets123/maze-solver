@@ -40,6 +40,24 @@ test('test maze content can be parsed', () => {
     expect(sol.matrix._data).toEqual([ [ 1, 0 ], [ 1, 0 ] ]);
 });
 
+test('windows line feeds', () => {
+    const sol = new Solver();
+    sol.parseText('XS\r\nXO');
+    expect(sol.matrix._data).toEqual([ [ 1, 0 ], [ 1, 0 ] ]);
+});
+
+test('trailing line', () => {
+    const sol = new Solver();
+    sol.parseText('XS\nXO\n');
+    expect(sol.matrix._data).toEqual([ [ 1, 0 ], [ 1, 0 ] ]);
+});
+
+test('whitespace before line', () => {
+    const sol = new Solver();
+    sol.parseText('XS\n\tXO\n');
+    expect(sol.matrix._data).toEqual([ [ 1, 0 ], [ 1, 0 ] ]);
+});
+
 test('larger Maze', () => {
     const sol = new Solver();
     sol.parseText('XOXXXX\nXOXOOX\nXOXOXX\nXOOOSX\nXXXXXX');

@@ -12,5 +12,15 @@ if (typeof filename !== 'undefined') {
     const solver = new Solver();
     solver.parseText(maze);
     solver.run();
-    console.log(solver.path);
+    
+    solver.path.forEach((value, index) => {
+        if(index == 0) {
+            console.log(`Start at column ${value._data[1] +1}, row ${value._data[0] + 1}`)
+        } else if (index === solver.path.length -1) {
+            console.log(`then end at at column ${value._data[1] + 1}, row ${value._data[0] + 1}`)
+        } else {
+            console.log(`then go to column ${value._data[1] + 1}, row ${value._data[0] + 1}`)
+        }
+        
+    });
 }
