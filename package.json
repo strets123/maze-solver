@@ -1,0 +1,27 @@
+{
+  "name": "mazesolver",
+  "version": "1.0.0",
+  "description": "## Installation",
+  "main": "app.js",
+  "scripts": {
+    "test": "jest",
+    "solve": "node ./app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/strets123/maze-solver.git"
+  },
+  "author": "strets123",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/strets123/maze-solver/issues"
+  },
+  "homepage": "https://github.com/strets123/maze-solver#readme",
+  "devDependencies": {
+    "jest": "^24.9.0"
+  },
+  "dependencies": {
+    "math.js": "^1.1.45",
+    "mathjs": "^6.2.1"
+  }
+}
