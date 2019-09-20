@@ -86,7 +86,7 @@ class Solver {
 
 
     parseText (mazeText) {
-        const rows = mazeText.split('\n');
+        const rows = mazeText.trim().split(/[\r\n]+/).map((r) => r.trim());
         this.numRows = rows.length;
         this.numColumns = rows[0].length;
         let numericRows = []
@@ -95,7 +95,6 @@ class Solver {
             for (let colNum = 0; colNum < this.numColumns; colNum++) {
                 const cell = rows[rowNum][colNum];
                 const isSide = colNum === (this.numColumns -1) || colNum === 0 || rowNum === (this.numRows -1) || rowNum === 0;
-                
                 if (cell == 'S') {
                     this.path = [mathjs.matrix([rowNum, colNum])];
                     row.push(0);
