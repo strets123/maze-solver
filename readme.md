@@ -40,3 +40,5 @@ By using a text-based matrix we could output an arrow to show the direction trav
 * Better choice of direction can be made by picking which direction gets us closer to the endpoint - a solution needs to be found to ensure that if there is a loop, the shortest path is taken around it.
 * Linting could be added to improve code readability.
 * Type checking could be added to try to stop errors.
+* CI could be added to run the tests and coverage.
+* When above is complete htis could be published to npm.
