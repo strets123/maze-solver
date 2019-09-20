@@ -35,8 +35,8 @@ By using a text-based matrix we could output an arrow to show the direction trav
 
 ## Proposed improvements
 
-* 3D mazes can e implemented by removing the remaining none-matrix driven code and coming up with a format for a 3D maze (work begun here https://github.com/strets123/maze-solver/pull/1).
-* Best path can be found by interating all possible paths and comparing length 
+* 3D mazes can be implemented by removing the remaining none-matrix driven code and coming up with a format for a 3D maze (work begun here https://github.com/strets123/maze-solver/pull/1).
+* Best path can be found by interating all possible paths and comparing length instead of stopping when we get to the end. I have not figured out the precise flow for this yet.
 * Better choice of direction can be made by picking which direction gets us closer to the endpoint - a solution needs to be found to ensure that if there is a loop, the shortest path is taken around it.
 * Linting could be added to improve code readability.
 * Type checking could be added to try to stop errors.
